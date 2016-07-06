@@ -87,9 +87,9 @@ public class GenericResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String runBat(Batch batch){            
         //r.createProperties();     
-        
+        Batch btc = new Batch();
         try {
-            batch = batchDatabase.getBatch("08M");
+            btc = batchDatabase.getBatch(batch.code);
             
         } catch (XmlException ex) {
             java.util.logging.Logger.getLogger(GenericResource.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,12 +99,12 @@ public class GenericResource {
             java.util.logging.Logger.getLogger(GenericResource.class.getName()).log(Level.SEVERE, null, ex);
             logger.error("Wrong, can't $POST successfully to web service.");  
         }
-            String filepath = batch.getBatpath();
+            String filepath = btc.getBatpath();
             // String filepath = property.readProperties("text");
             String result = property.runBatFile(filepath);
             
             logger.info("Run batch file successsfully!");
-            logger.info("The batch code is: "+ batch.code + ".");
+            logger.info("The batch code is: "+ btc.code + ".");
             logger.info("This batch file doesn't have any params.");
             logger.info("The running result is: "+ result + ".");
             
@@ -176,6 +176,7 @@ public class GenericResource {
         //return  "Post succesfully! the changed default value is :"+ btc.getInput().getParams().get(0).DEFAULTVALUE;  
         */
     }
+    
     
 }
     

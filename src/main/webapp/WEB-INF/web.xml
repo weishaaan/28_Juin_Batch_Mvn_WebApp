@@ -34,6 +34,7 @@
         <servlet-name>ServletAdaptor</servlet-name>
         <url-pattern>/webresources/*</url-pattern>
     </servlet-mapping>
+    
     <listener>
         <listener-class>com.mora.model.MyServlet</listener-class>
     </listener>

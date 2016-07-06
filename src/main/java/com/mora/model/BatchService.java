@@ -16,7 +16,7 @@ import org.apache.log4j.Logger;
 
 public class BatchService {
 
-    private Map<String, Batch> catalogue = BatchDatabase.getBatches();
+    private Map<String, Batch> catalogue = BatchDatabase.getMapBatches();
     
     private static Logger logger = Logger.getLogger(BatchService.class);
     

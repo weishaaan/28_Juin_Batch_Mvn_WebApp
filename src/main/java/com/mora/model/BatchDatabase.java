@@ -11,7 +11,7 @@ import org.apache.xmlbeans.XmlException;
 public class BatchDatabase {
     private static Map<String,Batch> catalogue = new HashMap<String,Batch>();
 
-    public static Map<String,Batch> getBatches(){
+    public static Map<String,Batch> getMapBatches(){
         return catalogue;
     }
     
