@@ -104,12 +104,12 @@
   </dependencies>
   
   <build>
-    <finalName>PrintMvnWeb</finalName>
+        <finalName>BatchMvnWeb</finalName>
         <plugins>
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.14</version>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.1.16.v20140903</version>
                 <configuration>
                     <webApp>
                         <!-- no need to scan anything as we're using servlet 2.5 and moreover, we're not using ServletContainerInitializer(s) -->
@@ -121,21 +121,7 @@
                 </configuration>
             </plugin>
             
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.3.0.v20150612</version>
-            </plugin>
-            
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <attachClasses>true</attachClasses>
-                </configuration>
-            </plugin>
+           
             
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -146,61 +132,9 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptorRefs>
-                                <descriptorRef>jar-with-dependencies</descriptorRef>
-                            </descriptorRefs>
-                            <finalName>opendata-ckan-pusher</finalName>
-                            <appendAssemblyId>false</appendAssemblyId>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.7</version>
-                <executions>
-                    <execution>
-                        <id>default-cli</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <copy todir="${installer.dir}/jre1.8.0_91">
-                                    <fileset dir="${project.basedir}/jre1.8.0_91" />
-                                </copy>
-                                <copy todir="${installer.dir}/commons-daemon">
-                                    <fileset dir="${project.basedir}/commons-daemon" />
-                                </copy>
-                                <copy file="${project.build.directory}/opendata-ckan-pusher.jar" todir="${installer.dir}" />
-                                <copy file="${project.basedir}/install.bat" todir="${installer.dir}" />
-                                <copy file="${project.basedir}/uninstall.bat" todir="${installer.dir}" />
-                                <copy file="${project.basedir}/config/pusher.yml" todir="${installer.dir}" />
-                                <copy file="${project.basedir}/LICENSE" todir="${installer.dir}" />
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+            
+            
         </plugins>
-  </build>
+    </build>
+    
 </project>
-
-
-
-
-
-
-
