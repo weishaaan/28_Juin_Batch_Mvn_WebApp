@@ -1,11 +1,7 @@
 package com.mora.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(propOrder = {"code", "name", "description", "output", "input","category","frequency","batpath"})
@@ -34,7 +30,6 @@ public class Batch {
 
     public Batch() {
     }
-
 
     public void setParalist(Map<String, Param> paralist) {
         this.paralist = paralist;
@@ -80,9 +75,6 @@ public class Batch {
         return batpath;
     }
 
-
-    
-    
     public void setCode(String code) {
         this.code = code;
     }
@@ -114,7 +106,5 @@ public class Batch {
     public void setBatpath(String batpath) {
         this.batpath = batpath;
     }
-    
-    
     
 }

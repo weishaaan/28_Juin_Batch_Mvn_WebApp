@@ -4,7 +4,6 @@ import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
-import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
@@ -21,7 +20,6 @@ public class QuartzTrigger {
                             .withSchedule(CronScheduleBuilder.cronSchedule("0/"+frequency+" * * * * ?"))
                             .build();
     	
-    	//schedule it
     	Scheduler scheduler = new StdSchedulerFactory().getScheduler();
     	scheduler.start();
     	scheduler.scheduleJob(job, trigger);

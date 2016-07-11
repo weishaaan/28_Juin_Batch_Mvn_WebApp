@@ -1,0 +1,14 @@
+com/mora/service/CORSFilter.class
+com/mora/model/GenericResource.class
+com/mora/model/Batch.class
+com/mora/batch/BatchDatabase.class
+com/mora/model/Batches.class
+com/mora/controller/ApplicationConfig.class
+com/mora/model/Input.class
+com/mora/service/BatchConfig.class
+com/mora/model/Marshall.class
+com/mora/batch/BatchProcessor.class
+com/mora/quartz/QuartzTest.class
+com/mora/controller/MyServlet.class
+com/mora/quartz/QuartzTrigger.class
+com/mora/model/Param.class

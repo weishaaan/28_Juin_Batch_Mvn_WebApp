@@ -1,14 +1,14 @@
 package com.mora.model;
 
-import com.mora.model.Param;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 
+@XmlAccessorType(XmlAccessType.PROPERTY)
 public class Input {
 
-    private List<Param> params = null;
+    public List<Param> params = null;
     
     public Input(List<Param> params){
         this.params = params;
