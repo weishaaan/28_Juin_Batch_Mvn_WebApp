@@ -16,6 +16,8 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.mora.model.GenericResource.class);
         resources.add(com.mora.service.CORSFilter.class);
+        resources.add(org.glassfish.jersey.client.filter.HttpDigestAuthFilter.class);
+        resources.add(org.glassfish.jersey.server.wadl.internal.WadlResource.class);
     }
     
 }

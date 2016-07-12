@@ -12,3 +12,4 @@ com/mora/quartz/QuartzTest.class
 com/mora/controller/MyServlet.class
 com/mora/quartz/QuartzTrigger.class
 com/mora/model/Param.class
+.netbeans_automatic_build
