@@ -17,11 +17,12 @@ public class BatchConfig {
 
     public Map<String, Batch> catalogue = BatchDatabase.getMapBatches();
     
-    public BatchConfig() throws XmlException, IOException, JAXBException {
+    public BatchConfig(String fullPath) throws XmlException, IOException, JAXBException {
 
         Marshall m = new Marshall();
-        Batches batches = m.unmarshaller();
-
+        Batches batches = m.unmarshaller(fullPath);
+        System.out.println("BatchConfig get path is :"+fullPath);
+        
         for (int i = 0; i < batches.getBatches().size(); i++) {
             
             Batch batch = batches.getBatches().get(i);

@@ -5,6 +5,7 @@
  */
 package com.mora.model;
 
+import com.mora.controller.MyServlet;
 import java.io.File;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -12,13 +13,16 @@ import javax.xml.bind.Unmarshaller;
 
 public class Marshall {
     
-    public Batches unmarshaller() throws JAXBException {
+    public Batches unmarshaller(String fullPath) throws JAXBException {
         
         String xmlPath = null;
-        xmlPath = "src/main/webapp/WEB-INF/batch_catalogue.xml";
+        
+        System.out.println("Marshall get path is :"+fullPath);
+        
+        //xmlPath = "src/main/webapp/WEB-INF/batch_catalogue.xml";
         JAXBContext jc = JAXBContext.newInstance(Batches.class);
         Unmarshaller unmarshaller = jc.createUnmarshaller();
-        Batches batches = (Batches) unmarshaller.unmarshal(new File(xmlPath));
+        Batches batches = (Batches) unmarshaller.unmarshal(new File(fullPath));
         
         for (int i = 0; i < batches.getBatches().size(); i++) {
             Batch btc = batches.getBatches().get(i);
