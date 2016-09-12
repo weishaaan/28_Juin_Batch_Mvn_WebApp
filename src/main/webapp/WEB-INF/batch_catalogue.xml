@@ -11,10 +11,22 @@ Spécification des batchs
         <NAME>Edicom - step 1</NAME>
         <DESCRIPTION>Envoi des factures en certification Edicom</DESCRIPTION>
         <OUTPUT>N/A</OUTPUT>
-        <CATEGORY>Logistique</CATEGORY>
+        <CATEGORY>Extractions Divalto</CATEGORY>
         <FREQUENCY></FREQUENCY>
         <BATPATH>D:\TEST\BAT\EDICOM-01.bat</BATPATH>
         <INPUT>
+            <PARAM>
+                <PARAMNAME>param1</PARAMNAME>
+                <DEFAULTVALUE>d1</DEFAULTVALUE>
+                <LABEL>l1</LABEL>
+                <INPUTVALUE>INPUTVALUE</INPUTVALUE>
+            </PARAM>
+            <PARAM>
+                <PARAMNAME>param2</PARAMNAME>
+                <DEFAULTVALUE>d2</DEFAULTVALUE>
+                <LABEL>l2</LABEL>
+                <INPUTVALUE>INPUTVALUE</INPUTVALUE>
+            </PARAM>
         </INPUT>
     </BATCH>
 

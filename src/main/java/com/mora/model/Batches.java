@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "CATALOG")
 @XmlAccessorType (XmlAccessType.FIELD)
 public class Batches{
+    
     @XmlElement(name = "BATCH")
     public List<Batch> batches = null;
 

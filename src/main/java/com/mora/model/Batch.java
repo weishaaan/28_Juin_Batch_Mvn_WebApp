@@ -4,7 +4,7 @@ import java.util.Map;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(propOrder = {"code", "name", "description", "output", "input","category","frequency","batpath"})
+//@XmlType(propOrder = {"code", "name", "description", "output", "input","category","frequency","batpath"})
 public class Batch {
     String code;
     String name;
@@ -16,24 +16,24 @@ public class Batch {
     Input input;
     Map<String,Param> paralist;
 
-    public Batch(String code, String name, String description, String output, Input input,String category,String frequency,String batpath) {
+    public Batch(String code, String name, String description, String output, String category, String frequency, String batpath, Input input, Map<String, Param> paralist) {
         this.code = code;
         this.name = name;
         this.description = description;
         this.output = output;
-        this.input = input;
         this.category = category;
         this.frequency = frequency;
         this.batpath = batpath;
+        this.input = input;
+        this.paralist = paralist;
     }
+
     
 
     public Batch() {
     }
 
-    public void setParalist(Map<String, Param> paralist) {
-        this.paralist = paralist;
-    }
+    
     
     @XmlElement(name = "CODE")
     public String getCode() {
@@ -75,6 +75,10 @@ public class Batch {
         return batpath;
     }
 
+    public Map<String, Param> getParalist() {
+        return paralist;
+    }
+    
     public void setCode(String code) {
         this.code = code;
     }
@@ -105,6 +109,10 @@ public class Batch {
 
     public void setBatpath(String batpath) {
         this.batpath = batpath;
+    }
+
+    public void setParalist(Map<String, Param> paralist) {
+        this.paralist = paralist;
     }
     
 }

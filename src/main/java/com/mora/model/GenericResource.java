@@ -24,7 +24,7 @@ public class GenericResource {
     
     BatchDatabase batchDatabase = new BatchDatabase();
     BatchProcessor batchProcessor = new BatchProcessor();  
-    private static Logger logger = Logger.getLogger(BatchConfig.class);
+    private static final Logger logger = Logger.getLogger(BatchConfig.class);
     QuartzTrigger trigger = new QuartzTrigger();
     QuartzTest quartz = new QuartzTest();
     
@@ -45,23 +45,20 @@ public class GenericResource {
         try {
             btc = batchDatabase.getBatch(batch.code);
             
-        } catch (XmlException ex) {
+        } catch (XmlException | IOException ex) {
             java.util.logging.Logger.getLogger(GenericResource.class.getName()).log(Level.SEVERE, null, ex);
             logger.error("Wrong, can't $POST successfully to web service."); 
             
-        } catch (IOException ex) {
-            java.util.logging.Logger.getLogger(GenericResource.class.getName()).log(Level.SEVERE, null, ex);
-            logger.error("Wrong, can't $POST successfully to web service.");  
         }
-            String filepath = btc.getBatpath();
-            String result = batchProcessor.runBatFile(filepath);
-            
-            logger.info("Successfully $POST params to web service!"+"The batch code is: "+ btc.code + "."+"This batch file doesn't have any params.");
-            logger.info("The running result is: "+ result + ".");
-            
-            return    "Run batch, and the result is : "+result; 
+        String filepath = btc.getBatpath();
+        String result = batchProcessor.runBatFile(filepath);
+
+        logger.info("Successfully $POST params to web service!" + "The batch code is: " + btc.code + "." + "This batch file doesn't have any params.");
+        logger.info("The running result is: " + result + ".");
+
+        return "Run batch, and the result is : " + result;
     }
-    
+
     @GET
     @Path("quartz")
     @Produces(MediaType.TEXT_PLAIN)
@@ -93,7 +90,6 @@ public class GenericResource {
         } catch (XmlException ex) {
             java.util.logging.Logger.getLogger(GenericResource.class.getName()).log(Level.SEVERE, null, ex);
             logger.error("Wrong, can't get the batch file."); 
-            
         } catch (IOException ex) {
             java.util.logging.Logger.getLogger(GenericResource.class.getName()).log(Level.SEVERE, null, ex);
             logger.error("Wrong, can't get the batch file"); 
@@ -106,6 +102,7 @@ public class GenericResource {
         String paramPostList = gson.toJson(paramPosts);
         logger.info("Successfully $POST params to web service!"+"The batch code is " + btc.code + ".Those params are: "+ paramPostList);
         logger.info("The running result is: "+ result + ".");
+        
         
         Map<String,Param> paraList = btc.paralist;
         for(int j = 1 ;j< paramPosts.size(); j++){
